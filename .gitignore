@@ -1,4 +1,5 @@
 nn-venv/
+venv/
 *.jpg
 
 # GETTING following from https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/ #
