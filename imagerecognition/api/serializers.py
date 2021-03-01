@@ -16,7 +16,7 @@ class TaskSerializer(serializers.Serializer):
     # status = serializers.ChoiceField(choices=STATUSES, default='New')
 
     def create(self, validated_data):
-        # print(f"TaskSerializer, create()")
+        # print(f'TaskSerializer, create() - {validated_data}')
         return Task(id=None, **validated_data)
 
     # def update(self, instance, validated_data):

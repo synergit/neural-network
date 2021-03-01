@@ -34,14 +34,17 @@ class TaskViewSet(viewsets.ViewSet):
 
     def create(self, request):
         # print(f'create')
+        # print(f'{request}')
+        # print(f'DEBUG: request.data={request.data}')
         serializer = serializers.TaskSerializer(data=request.data)
         if serializer.is_valid():
             task = serializer.save()
             task.id = get_next_task_id()
             tasks[task.id] = task
-            # print(f'task.imagepath={task.imagepath}')
+            # print(f'DEBUG: task.imagepath={task.imagepath}')
             classifier = ImageRecognition.ImageRecognition(task.imagepath)
             ans = classifier.get_prediction()
+            # print(f'DEBUG: ans={ans}')
             return Response({'result': ans}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
