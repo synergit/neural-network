@@ -1,6 +1,7 @@
 nn-venv/
 venv/
 *.jpg
+.DS_Store
 
 # GETTING following from https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/ #
 # Django #
