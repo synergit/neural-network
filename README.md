@@ -4,10 +4,7 @@ This is an image recognition project with API:
 - Django REST Framework
 
 Quick video to see how easy you can run image recognition on your local machine:
-
-https://user-images.githubusercontent.com/10833201/110188220-07676280-7de9-11eb-8c08-244858073f27.mov
-
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/TC3C5jirBxU/0.jpg)](https://www.youtube.com/watch?v=TC3C5jirBxU)
 
 ## Installation
 
