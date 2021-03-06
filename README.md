@@ -3,8 +3,11 @@ This is an image recognition project with API:
 - xxx model trained with ImageNet
 - Django REST Framework
 
+Quick video to see how easy you can run image recognition on your local machine:
 
-A short video or screenshot is alway helpful and attractive.  Tools like [ttygif](https://github.com/icholy/ttygif) can help, but check out [Asciinema](https://asciinema.org/) for a more sophisticated method.
+https://user-images.githubusercontent.com/10833201/110188220-07676280-7de9-11eb-8c08-244858073f27.mov
+
+
 
 ## Installation
 
