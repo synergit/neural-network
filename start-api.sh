@@ -1,6 +1,5 @@
 #!/bin/bash
 
-deactivate
 source nn-venv/bin/activate
 python imagerecognition/manage.py runserver
 
