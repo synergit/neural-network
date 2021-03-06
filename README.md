@@ -1,7 +1,7 @@
 # Image Recognition
 This is an image recognition project with API:
-- xxx model trained with ImageNet
-- Django REST Framework
+- [Inception_v3](https://pytorch.org/hub/pytorch_vision_inception_v3/) model pre-trained with images on ImageNet
+- [Django REST Framework](https://www.django-rest-framework.org/)
 
 Quick video to see how easy you can run image recognition on your local machine:
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/TC3C5jirBxU/0.jpg)](https://www.youtube.com/watch?v=TC3C5jirBxU)
