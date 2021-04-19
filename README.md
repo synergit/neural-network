@@ -18,12 +18,17 @@ Quick video to see how easy you can run image recognition on your local machine:
     . start-api.sh
     ```
 1. Open `localhost:8000`, click the link `"api": "http://localhost:8000/api/"` in as marked in following screenshot
+![Screen Shot 2021-04-18 at 10 29 50 PM](https://user-images.githubusercontent.com/10833201/115173864-2b7bbc00-a096-11eb-8c65-1e1806f72000.png)
 1. Enter the image path into following `Imagepath` and click `POST` button
+![Screen Shot 2021-04-18 at 10 29 42 PM](https://user-images.githubusercontent.com/10833201/115173878-346c8d80-a096-11eb-81b2-b78749df84f3.png)
+
+The image is recognized by AI model and return the top 1 result to you
 
 ## Support
 - Contact engineer: syner.wang@gmail.com
 
 ## Roadmap
+- display top 3 result with confidence score
 - deploy to DigitalOcean, host it on server
 - merge other pre-trained model for fun! 
 
