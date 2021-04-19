@@ -7,14 +7,22 @@ Quick video to see how easy you can run image recognition on your local machine:
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/TC3C5jirBxU/0.jpg)](https://www.youtube.com/watch?v=TC3C5jirBxU)
 
 ## Installation
-
+- Python v3.6 and above
+- Django 
+- Django REST Framework
+- PyTorch
 
 ## Usage
-
+- Simply run 
+```shell
+. start-api.h
+```
 ## Support
-Clarify preferred support process. 
+- Contact engineer: syner.wang@gmail.com
 
 ## Roadmap
+- deploy to DigitalOcean, host it on server
+- merge other pre-trained model for fun! 
 
 ## Authors
 Chloe Wang
