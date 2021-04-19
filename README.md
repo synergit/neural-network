@@ -13,10 +13,13 @@ Quick video to see how easy you can run image recognition on your local machine:
 - PyTorch
 
 ## Usage
-- Simply run 
-```shell
-. start-api.h
-```
+1. Simply run 
+    ```shell
+    . start-api.sh
+    ```
+1. Open `localhost:8000`, click the link `"api": "http://localhost:8000/api/"` in as marked in following screenshot
+1. Enter the image path into following `Imagepath` and click `POST` button
+
 ## Support
 - Contact engineer: syner.wang@gmail.com
 
