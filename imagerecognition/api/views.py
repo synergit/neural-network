@@ -17,9 +17,7 @@ tasks = {
 
 
 def get_next_task_id():
-    # print(f'--get_next_task_id()')
     return len(tasks) + 1
-
 
 class TaskViewSet(viewsets.ViewSet):
     # print(f'TaskViewSet')
@@ -27,80 +25,20 @@ class TaskViewSet(viewsets.ViewSet):
     serializer_class = serializers.TaskSerializer
 
     def list(self, request):
-        # print(f'list')
         serializer = serializers.TaskSerializer(
             instance=tasks.values(), many=True)
         return Response(serializer.data)
 
     def create(self, request):
-        # print(f'create')
-        # print(f'{request}')
-        # print(f'DEBUG: request.data={request.data}')
         serializer = serializers.TaskSerializer(data=request.data)
         if serializer.is_valid():
             task = serializer.save()
             task.id = get_next_task_id()
             tasks[task.id] = task
-            # print(f'DEBUG: task.imagepath={task.imagepath}')
+            
             classifier = ImageRecognition.ImageRecognition(task.imagepath)
             ans = classifier.get_prediction()
-            # print(f'DEBUG: ans={ans}')
+            
             return Response({'result': ans}, status=status.HTTP_201_CREATED)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    # def retrieve(self, request, pk=None):
-    #     print(f'retrieve')
-    #     try:
-    #         task = tasks[int(pk)]
-    #     except KeyError:
-    #         return Response(status=status.HTTP_404_NOT_FOUND)
-    #     except ValueError:
-    #         return Response(status=status.HTTP_400_BAD_REQUEST)
-
-        # serializer = serializers.TaskSerializer(instance=task)
-        # return Response(serializer.data)
-
-    # def update(self, request, pk=None):
-    #     try:
-    #         task = tasks[int(pk)]
-    #     except KeyError:
-    #         return Response(status=status.HTTP_404_NOT_FOUND)
-    #     except ValueError:
-    #         return Response(status=status.HTTP_400_BAD_REQUEST)
-
-    #     serializer = serializers.TaskSerializer(
-    #         data=request.data, instance=task)
-    #     if serializer.is_valid():
-    #         task = serializer.save()
-    #         tasks[task.id] = task
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    # def partial_update(self, request, pk=None):
-    #     try:
-    #         task = tasks[int(pk)]
-    #     except KeyError:
-    #         return Response(status=status.HTTP_404_NOT_FOUND)
-    #     except ValueError:
-    #         return Response(status=status.HTTP_400_BAD_REQUEST)
-
-    #     serializer = serializers.TaskSerializer(
-    #         data=request.data,
-    #         instance=task,
-    #         partial=True)
-    #     if serializer.is_valid():
-    #         task = serializer.save()
-    #         tasks[task.id] = task
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    # def destroy(self, request, pk=None):
-    #     try:
-    #         task = tasks[int(pk)]
-    #     except KeyError:
-    #         return Response(status=status.HTTP_404_NOT_FOUND)
-    #     except ValueError:
-    #         return Response(status=status.HTTP_400_BAD_REQUEST)
-
-    #     del tasks[task.id]
-    #     return Response(status=status.HTTP_204_NO_CONTENT)

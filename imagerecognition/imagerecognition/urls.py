@@ -16,25 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-# from django.contrib.auth.models import User
 from rest_framework import routers
 from api.views import TaskViewSet
 
-
-# Serializers define the API representation.
-# class UserSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ['url', 'username', 'email', 'is_staff']
-
-# # ViewSets define the view behavior.
-# class UserViewSet(viewsets.ModelViewSet):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
 router = routers.DefaultRouter()
-# router.register(r'users', UserViewSet)
-router.register(r'api', TaskViewSet, basename='api')
-# urlpatterns = router.urls
+router.register(r'api', TaskViewSet, basename='api') # register /api endpoint
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),

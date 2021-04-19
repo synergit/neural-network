@@ -3,11 +3,10 @@ import urllib
 import os
 from PIL import Image
 from torchvision import transforms, models 
+import os
 
 class ImageRecognition():
     def __init__(self, image_file, device='cpu'):
-        # Process the image input file
-        # self.image_file = os.path.join(root_dir, image_file)
         # Asses the internal device: cpu or gpu:
         if device == 'cuda' and torch.cuda.is_available():
             self.device = 'cuda'
@@ -23,18 +22,10 @@ class ImageRecognition():
             std=[0.229, 0.224, 0.225]                  
         )])
 
-        # def download_file(url, filename):
-        #     try: 
-        #         urllib.URLopener().retrieve(url, filename)
-        #     except: 
-        #         urllib.request.urlretrieve(url, filename)
-
         self.image_file = image_file
-        syncsets_file = "/Users/chloe/git/neural-network/imagerecognition/api/imagenet_synsets.txt"
-        classes_file = "/Users/chloe/git/neural-network/imagerecognition/api/imagenet_classes.txt"
-        
-        
-        # download_file(image_url, self.image_file)
+        dirname = os.path.dirname(__file__)
+        syncsets_file = os.path.join(dirname, 'imagenet_constants/imagenet_synsets.txt')
+        classes_file = os.path.join(dirname, 'imagenet_constants/imagenet_classes.txt')
        
         self.labels = None
         with open(classes_file) as f:
@@ -56,7 +47,7 @@ class ImageRecognition():
         with torch.no_grad():
             output = inception_v3(input_batch)
 
-        _, y_hat = torch.max(output, 1) # top probability
+        _, y_hat = torch.max(output, 1) # top 1 probability
         
         return self.dic[self.labels[y_hat]]
  
